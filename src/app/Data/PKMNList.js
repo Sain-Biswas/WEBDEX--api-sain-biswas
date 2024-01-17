@@ -5,7 +5,7 @@ const pokemonListFetch = async () => {
     if (!global._connectionStatus) {
         await connectMongoDB();
     }
-    const data = await PokemonList.find({});
+    const data = await PokemonList.find({}).sort({ id: 'asc' });
     return data;
 }
 

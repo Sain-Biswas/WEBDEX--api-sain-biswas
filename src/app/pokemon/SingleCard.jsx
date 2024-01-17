@@ -7,7 +7,7 @@ const SingleCard = ({ id, name, types }) => {
     const [c1, c2] = (types.length > 1) ? ([types[0].color, types[1].color]) : ([types[0].color, "gray"])
 
     return (
-        <div className="m-2 p-2 rounded-2xl flex justify-between align-middle text-white font-bold font-sans sm:flex-col sm:w-[19rem] sm:justify-evenly" style={{ backgroundImage: `linear-gradient(to right, ${c1} 20%, ${c1} 40%,${c2} 75%)` }} >
+        <div className="sm:ring-4 sm:ring-slate-600 m-2 p-2 rounded-2xl flex justify-between align-middle text-white font-bold font-sans sm:flex-col sm:w-[19rem] sm:justify-evenly" style={{ backgroundImage: `linear-gradient(to right, ${c1} 20%, ${c1} 40%,${c2} 75%)` }} >
             <div className="flex flex-col justify-center pl-2">
                 <p className="before:content-['#'] text-slate-600 text-3xl sm:h-[21rem] sm:text-7xl sm:text-center"> {id} </p>
                 <div className="sm:flex-col">
