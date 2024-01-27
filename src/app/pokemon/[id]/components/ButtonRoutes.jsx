@@ -36,7 +36,7 @@ const ButtonRoutes = ({ data }) => {
                     variant={`${(route === 'evo') ? 'solid' : 'light'}`}
                 >Evolution</Button>
             </ButtonGroup>
-            <div>
+            <div className="sticky">
                 {(route == 'basic') && <BasicDetails data={data} />}
                 {(route == 'evo') && <EvolutionForms data={data} />}
                 {(route == 'moves') && <Moves data={data} />}
