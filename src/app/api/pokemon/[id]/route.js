@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import singlePokemonFetch from "../../../Data/SinglePKMN";
+import singlePokemonFetch from "../../../resources/Data/SinglePKMN";
 
 export async function GET(request) {
     const id = request.url.split("pokemon/")[1];
