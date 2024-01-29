@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from 'react';
 import { Images } from '../../../../public/Images/exporter';
 import { TypeIcons } from "../../../../public/TypeIcon/exporter";
-import singlePokemonFetch from "../../Data/SinglePKMN";
+import singlePokemonFetch from "../../resources/Data/SinglePKMN";
 import ButtonRoutes from './components/ButtonRoutes';
 
 const SinglePokemon = async ({ params }) => {
@@ -11,7 +11,7 @@ const SinglePokemon = async ({ params }) => {
     const data = await singlePokemonFetch(id);
     const [c1, c2] = (data.types.length > 1) ? ([data.types[0].color, data.types[1].color]) : ([data.types[0].color, data.types[0].color])
     return (
-        <div className='flex flex-col flex-wrap text-white sm:text-black font-sans align-middle justify-evenly' style={{ backgroundImage: `linear-gradient(to right, ${c1} 20%, ${c1} 40%,${c2} 75%)` }}>
+        <div className='flex flex-col flex-wrap text-white font-sans animate-gradient align-middle justify-evenly' style={{ backgroundImage: `linear-gradient(-45deg, ${c1},${c2})`, backgroundSize: '400%' }}>
             <div className='flex flex-row flex-wrap justify-evenly content-evenly pb-2 items-center'>
                 <div className="w-80 h-80">
                     <Image className='rotate-45' src={Images.bgPokeball} width={1026} height={1026} alt="" />

@@ -1,17 +1,36 @@
-'use client';
-
-import { Button, ButtonGroup } from "@nextui-org/react";
-import { useState } from "react";
+import {
+    Tabs,
+    TabsContent,
+    TabsList,
+    TabsTrigger,
+} from "../../../resources/components/ui/tabs";
 import BasicDetails from "./BasicDetails";
 import EvolutionForms from "./EvolutionForms";
 import Moves from "./Moves";
 
 const ButtonRoutes = ({ data }) => {
-    const [route, setRoute] = useState('basic');
 
     return (
-        <>
-            <ButtonGroup
+        <Tabs defaultValue="basics" className="w-full">
+            <TabsList className="grid bg-purple-300 grid-cols-3 mx-2">
+                <TabsTrigger value="basics" className="data-[state=active]:bg-purple-700 text-white font-extrabold data-[state=active]:text-white">Basics</TabsTrigger>
+                <TabsTrigger value="evolution" className="data-[state=active]:bg-purple-700 text-white font-extrabold data-[state=active]:text-white">Evolution & Forms</TabsTrigger>
+                <TabsTrigger value="moves" className="data-[state=active]:bg-purple-700 text-white font-extrabold data-[state=active]:text-white">Moves</TabsTrigger>
+            </TabsList>
+            <TabsContent value="basics">
+                <BasicDetails data={data} />
+            </TabsContent>
+            <TabsContent value="evolution">
+                <EvolutionForms data={data} />
+            </TabsContent>
+            <TabsContent value="moves">
+                <Moves data={data} />
+            </TabsContent>
+        </Tabs>
+    )
+}
+
+{/* <ButtonGroup
                 fullWidth
                 size="sm"
                 radius="sm"
@@ -40,9 +59,6 @@ const ButtonRoutes = ({ data }) => {
                 {(route == 'basic') && <BasicDetails data={data} />}
                 {(route == 'evo') && <EvolutionForms data={data} />}
                 {(route == 'moves') && <Moves data={data} />}
-            </div>
-        </>
-    )
-}
+            </div> */}
 
 export default ButtonRoutes

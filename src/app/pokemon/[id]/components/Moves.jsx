@@ -14,7 +14,7 @@ const Moves = ({ data }) => {
                     style={{ backgroundColor: move.type.color, minWidth: '10rem' }}
                 >
                     <div
-                        className="w-full"
+                        className="w-full pokeball-move"
                     >
                         <div
                             className="flex justify-between w-full"

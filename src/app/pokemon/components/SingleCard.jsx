@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { TypeIcons } from "../../../public/TypeIcon/exporter";
+import { TypeIcons } from "../../../../public/TypeIcon/exporter";
 
 
 const SingleCard = ({ id, name, types }) => {

@@ -1,113 +1,272 @@
-'use client';
-import { Input, Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@nextui-org/react";
-import Image from "next/image";
+"use client"
+
 import Link from "next/link";
+import React from 'react';
+
+import pokeapi from './pokeapiLogo.png';
+import pokemon from './pokemonLogo.png';
+import logo from './webdexLogo.png';
+
+import SearchIcon from '../resources/icons/SearchIcon';
+
+import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { useRef } from "react";
-import img from './webdexLogo.png';
+import { Button } from "../resources/components/ui/button";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuPortal,
+    DropdownMenuSeparator,
+    DropdownMenuShortcut,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
+    DropdownMenuTrigger,
+} from "../resources/components/ui/dropdown-menu";
+import { Input } from "../resources/components/ui/input";
+import {
+    NavigationMenu,
+    NavigationMenuContent,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger,
+    navigationMenuTriggerStyle,
+} from "../resources/components/ui/navigation-menu";
 
-export default function NavBar() {
-    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+export default function NavigationMenuDemo() {
     const router = useRouter();
-    const searchRef = useRef("");
 
-    const menuItems = [
-        "Profile",
-        "Dashboard",
-        "Activity",
-        "Analytics",
-        "System",
-        "Deployments",
-        "My Settings",
-        "Team Settings",
-        "Help & Feedback",
-        "Log Out",
-    ];
+    function Search(e) {
+        e.preventDefault();
+        let value = e.target[0].value
+
+        router.push(`/pokemon/${value}`);
+        value = ""
+    }
 
     return (
-        <Navbar onMenuOpenChange={setIsMenuOpen}>
-            <NavbarContent>
-                <NavbarMenuToggle
-                    aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                    className="sm:hidden"
-                />
-                <NavbarBrand>
-                    <Image src={img} alt='' width={44} height={44} />
-                    <p className="font-bold text-2xl p-2">WebDex</p>
-                </NavbarBrand>
-            </NavbarContent>
+        <div className="w-full p-2 flex items-center justify-between border-b-2">
+            <div className="flex items-center">
+                <div className="md:hidden">
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="outline" size="icon">
+                                <HamburgerMenuIcon />
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-56">
+                            <DropdownMenuGroup>
+                                <DropdownMenuGroup>
+                                    <DropdownMenuSub>
+                                        <DropdownMenuSubTrigger>
+                                            <div
+                                                className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-3 no-underline outline-none focus:shadow-md"
+                                            >
+                                                <Image src={pokemon} alt="" width={2000} height={736} className="h-10 w-full" />
+                                                <div className="text-lg text-center font-mono font-bold">
+                                                    Pokemon
+                                                </div>
+                                            </div>
+                                        </DropdownMenuSubTrigger>
+                                        <DropdownMenuPortal>
+                                            <DropdownMenuSubContent>
+                                                <DropdownMenuItem>
+                                                    <Button variant="ghost" className='w-full'>
+                                                        <Link href="/pokemon" className="w-full">
+                                                            Pokemons
+                                                        </Link>
+                                                    </Button>
+                                                </DropdownMenuItem>
+                                                <DropdownMenuItem>
+                                                    <Button variant="ghost" className='w-full'>
+                                                        <Link href="/pokemon/moves" className="w-full">
+                                                            Moves
+                                                        </Link>
+                                                    </Button>
+                                                </DropdownMenuItem>
+                                                <DropdownMenuItem>
+                                                    <Button variant="ghost" className='w-full'>
+                                                        <Link href="/pokemon/type" className="w-full">
+                                                            Types
+                                                        </Link>
+                                                    </Button>
+                                                </DropdownMenuItem>
+                                            </DropdownMenuSubContent>
+                                        </DropdownMenuPortal>
+                                    </DropdownMenuSub>
+                                </DropdownMenuGroup>
+                            </DropdownMenuGroup>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuGroup>
+                                <DropdownMenuSub>
+                                    <DropdownMenuSubTrigger>
+                                        <div
+                                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-3 no-underline outline-none focus:shadow-md"
+                                        >
+                                            <Image src={pokeapi} alt="" width={2000} height={736} className="h-10 w-full" />
+                                            <div className="text-lg text-center font-mono font-bold">
+                                                Pokemon API
+                                            </div>
+                                        </div>
+                                    </DropdownMenuSubTrigger>
+                                    <DropdownMenuPortal>
+                                        <DropdownMenuSubContent>
+                                            <DropdownMenuItem>
+                                                <Button variant="ghost" className='w-full'>
+                                                    <Link href="/docs/pokemon" className="w-full">
+                                                        Pokemons
+                                                    </Link>
+                                                </Button>
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem>
+                                                <Button variant="ghost" className='w-full'>
+                                                    <Link href="/docs/moves" className="w-full">
+                                                        Moves
+                                                    </Link>
+                                                </Button>
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem>
+                                                <Button variant="ghost" className='w-full'>
+                                                    <Link href="/docs/type" className="w-full">
+                                                        Types
+                                                    </Link>
+                                                </Button>
+                                            </DropdownMenuItem>
+                                        </DropdownMenuSubContent>
+                                    </DropdownMenuPortal>
+                                </DropdownMenuSub>
+                            </DropdownMenuGroup>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuItem>
+                                <Button variant="ghost" className='w-full'>
+                                    <Link href="/about" className="w-full">
+                                        About
+                                    </Link>
+                                </Button>
+                            </DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                </div>
 
-            <NavbarContent className="hidden sm:flex gap-4" justify="center">
-                <NavbarItem>
-                    <Link className="text-slate-500 hover:text-purple-600 hover:font-bold" href="/pokemon">
-                        Pokemon
-                    </Link>
-                </NavbarItem>
-                <NavbarItem>
-                    <Link className="text-slate-500 hover:text-purple-600 hover:font-bold" href="#">
-                        Customers
-                    </Link>
-                </NavbarItem>
-                <NavbarItem>
-                    <Link className="text-slate-500 hover:text-purple-600 hover:font-bold" href="#">
-                        Integrations
-                    </Link>
-                </NavbarItem>
-            </NavbarContent>
+                <Link href="/" className="flex items-center pl-2 md:pl-0">
+                    <Image
+                        src={logo}
+                        alt=""
+                        width={1024}
+                        height={1024}
+                        className="block h-10 w-10"
+                    />
+                    <p className="pl-2 text-2xl font-bold">WebDex</p>
+                </Link>
+            </div>
 
-            <NavbarContent justify="end">
-                <Input
-                    classNames={{
-                        base: "h-10",
-                        mainWrapper: "h-full w-44",
-                        input: "text-small",
-                        inputWrapper: "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
-                    }}
-                    placeholder="Enter Pokemon Id"
-                    size="sm"
-                    ref={searchRef}
-                    endContent={
-                        <button
-                            onClick={() => {
-                                router.push(`/pokemon/${searchRef.current.value}`)
-                            }}
-                        >
-                            <svg
-                                aria-hidden="true"
-                                fill="none"
-                                focusable="false"
-                                height='18'
-                                role="presentation"
-                                viewBox="0 0 24 24"
-                                width='18'
-                            >
-                                <path
-                                    d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
-                                    stroke="currentColor"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={1.5}
-                                />
-                                <path
-                                    d="M22 22L20 20"
-                                    stroke="currentColor"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={1.5}
-                                />
-                            </svg>
-                        </button>
-                    }
-                    type="search"
-                />
-            </NavbarContent>
-            <NavbarMenu>
-                <NavbarMenuItem key={`pokemon`}>
-                    <Link className="text-slate-500 hover:text-purple-600 hover:font-bold w-full" href="/pokemon" size="lg">
-                        Pokemon
-                    </Link>
-                </NavbarMenuItem>
-            </NavbarMenu>
-        </Navbar>
-    );
+            <NavigationMenu className="hidden md:block">
+                <NavigationMenuList>
+                    <NavigationMenuItem>
+                        <NavigationMenuTrigger>Pokemon</NavigationMenuTrigger>
+                        <NavigationMenuContent>
+                            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                                <li className="row-span-3">
+                                    <NavigationMenuLink asChild>
+                                        <div
+                                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                                        >
+                                            <Image src={pokemon} alt="" width={2000} height={736} className="h-10 w-full" />
+                                            <div className="mb-2 mt-4 text-lg font-medium">
+                                                Pokemon
+                                            </div>
+                                            <p className="text-sm leading-tight text-muted-foreground">
+                                                Welcome to WebDex. The all in one Online Pokedex.
+                                            </p>
+                                        </div>
+                                    </NavigationMenuLink>
+                                </li>
+                                <ListItem href="/pokemon" title="Pokemons">
+                                    Learn and discover all about the monsters of the PokeWorld.
+                                </ListItem>
+                                <ListItem href="/pokemon/moves" title="Moves">
+                                    Learn and discover all about the Moves of the PokeWorld Monsters.
+                                </ListItem>
+                                <ListItem href="/pokemon/type" title="Types">
+                                    Learn and discover all about the different types of monsters in the PokeWorld.
+                                </ListItem>
+                            </ul>
+                        </NavigationMenuContent>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <NavigationMenuTrigger>PokeAPI</NavigationMenuTrigger>
+                        <NavigationMenuContent>
+                            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                                <li className="row-span-3">
+                                    <NavigationMenuLink asChild>
+                                        <div
+                                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                                        >
+                                            <Image src={pokeapi} alt="" width={2000} height={736} className="h-10 w-full" />
+                                            <div className="mb-2 mt-4 text-lg font-medium">
+                                                Pokemon API
+                                            </div>
+                                            <p className="text-sm leading-tight text-muted-foreground">
+                                                Beautifully designed Application Programming Interface &#40;API&#41; to get all information about pokemons in one place.
+                                            </p>
+                                        </div>
+                                    </NavigationMenuLink>
+                                </li>
+                                <ListItem href="/docs/pokemon" title="Pokemons">
+                                    Guide to access the information of all pokemons at one place.
+                                </ListItem>
+                                <ListItem href="/docs/moves" title="Moves">
+                                    Guide to access information about all the moves pokemons can use.
+                                </ListItem>
+                                <ListItem href="/docs/types" title="Types">
+                                    Guide to access information about pokemon types in the pokemon world.
+                                </ListItem>
+                            </ul>
+                        </NavigationMenuContent>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link href="/about" legacyBehavior passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                About
+                            </NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                </NavigationMenuList>
+            </NavigationMenu>
+
+            <form onSubmit={Search} className="flex gap-1">
+                <Input placeholder="Search" type="text" className="w-40" />
+                <Button size="icon">
+                    <SearchIcon />
+                </Button>
+            </form>
+        </div>
+    )
 }
+
+const ListItem = React.forwardRef(({ className, title, children, ...props }, ref) => {
+    return (
+        <li>
+            <NavigationMenuLink asChild>
+                <Link
+                    ref={ref}
+                    className={
+                        `block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground ${className}`}
+                    {...props}
+                >
+                    <div className="text-sm font-medium leading-none">{title}</div>
+                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                        {children}
+                    </p>
+                </Link>
+            </NavigationMenuLink>
+        </li>
+    )
+})
+ListItem.displayName = "ListItem"

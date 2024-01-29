@@ -1,10 +1,10 @@
 import { Suspense } from "react";
-import pokemonListFetch from "../Data/PKMNList";
-import SingleCard from "./SingleCard";
-
+import pokemonListFetch from "../resources/Data/PKMNList";
+import SingleCard from "./components/SingleCard";
 
 const Pokemon = async () => {
     const pokemonData = await pokemonListFetch();
+
     return (
         <>
             <Suspense fallback={<div>Loading...</div>}>
