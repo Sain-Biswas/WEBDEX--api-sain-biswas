@@ -53,6 +53,9 @@ const PokemonListSchema = new mongoose.Schema(
         height: {
             type: Number
         },
+        weight: {
+            type: Number
+        },
         mythical: {
             type: Boolean
         },
