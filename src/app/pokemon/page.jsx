@@ -8,7 +8,7 @@ const Pokemon = async () => {
     return (
         <>
             <Suspense fallback={<div>Loading...</div>}>
-                <div className="bg-pdiv sm:flex sm:flex-wrap sm:justify-evenly">
+                <div className="sm:flex sm:flex-wrap sm:justify-evenly bg-pdiv">
                     {pokemonData.map(element => < SingleCard key={element.id} id={element.id} name={element.name} types={element.types} />)}
                 </div>
             </Suspense>

@@ -76,9 +76,10 @@
   }
 }
 
+
 @layer components {
   .bg-pdiv {
-    background-image: url('../../public/Images/pokeballBG.jpeg');
+    background-image: url('../../public//Images/pokeballBG.jpeg');
     background-repeat: repeat;
     background-size: 100px 100px;
   }
@@ -91,10 +92,36 @@
     background-size: 3rem;
   }
 
+  .bg-minipokeball {
+    background-image: url('../../public/Images/miniPokeBall.png');
+    background-size: cover;
+  }
+
   .pokemon-pokeball {
     background-image: url("../../public/Images/semiPokeball.png");
+    background-size: 17rem;
+    background-position: center;
     background-repeat: no-repeat;
-    background-attachment: local;
+  }
+
+  .bg-dotted {
+    background-image: url('../../public//Images//dottedBackground.png');
     background-size: cover;
+  }
+
+  .text-shadow-black {
+    text-shadow:
+      -1px -2px 0 #000,
+      1px -2px 0 #000,
+      -1px 2px 0 #000,
+      1px 2px 0 #000;
+  }
+
+  .text-shadow-white {
+    text-shadow:
+      -1px -2px 0 #fff,
+      1px -2px 0 #fff,
+      -1px 2px 0 #fff,
+      1px 2px 0 #fff;
   }
 }

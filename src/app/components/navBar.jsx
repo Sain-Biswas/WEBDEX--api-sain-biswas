@@ -51,7 +51,7 @@ export default function NavigationMenuDemo() {
     }
 
     return (
-        <div className="w-full p-2 flex items-center justify-between border-b-2">
+        <div className="w-full p-2 z-50 flex items-center justify-between border-b-2">
             <div className="flex items-center">
                 <div className="md:hidden">
                     <DropdownMenu>
@@ -166,7 +166,7 @@ export default function NavigationMenuDemo() {
                 </Link>
             </div>
 
-            <NavigationMenu className="hidden md:block">
+            <NavigationMenu className="hidden md:block z-50">
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <NavigationMenuTrigger>Pokemon</NavigationMenuTrigger>

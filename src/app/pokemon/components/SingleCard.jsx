@@ -22,8 +22,8 @@ const SingleCard = ({ id, name, types }) => {
                     </div>
                 </div>
             </div>
-            <Link href={`/pokemon/${id}`} className="h-72 w-72 inline-block sm:relative sm:top-[-24rem] sm:h-0">
-                <Image src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`} width={475} height={475} alt={`${name}`} className="" />
+            <Link href={`/pokemon/${id}`} className="h-72 w-72 inline-block sm:relative sm:top-[-23rem] sm:h-0">
+                <Image src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`} width={475} height={475} alt={`${name}`} className="pokemon-pokeball" />
             </Link >
         </div>
     )

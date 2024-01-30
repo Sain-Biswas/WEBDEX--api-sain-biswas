@@ -17,6 +17,7 @@ module.exports = {
       },
     },
     extend: {
+
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -52,11 +53,13 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+
       keyframes: {
         "gradient": {
           '0%, 100%': { backgroundPosition: '0% 50%' },
@@ -71,11 +74,16 @@ module.exports = {
           to: { height: "0" },
         },
       },
+
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "gradient": "gradient 2s ease infinite"
       },
+
+      fontFamily: {
+        rubikburned: ['"Rubik Burned"'],
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
