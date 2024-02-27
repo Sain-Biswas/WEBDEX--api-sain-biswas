@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`overflow-x-hidden flex flex-col bg-slate-100 min-h-screen ${inter.className}`}>
         <NavBar />
-        <div className='flex-grow'>
+        <div className='flex-grow p-2'>
           {children}
         </div>
       </body>
