@@ -3,12 +3,12 @@ import {
     TabsContent,
     TabsList,
     TabsTrigger,
-} from "../../../resources/components/ui/tabs";
+} from "../../../../resources/components/ui/tabs";
 import BasicDetails from "./BasicDetails";
 import EvolutionForms from "./EvolutionForms";
 import Moves from "./Moves";
 
-const ButtonRoutes = ({ data }) => {
+const ButtonRoutes = ({ data, c1, c2 }) => {
 
     return (
         <Tabs defaultValue="basics" className="w-full">
@@ -18,7 +18,7 @@ const ButtonRoutes = ({ data }) => {
                 <TabsTrigger value="moves" className="data-[state=active]:bg-purple-700 text-white font-extrabold data-[state=active]:text-white">Moves</TabsTrigger>
             </TabsList>
             <TabsContent value="basics">
-                <BasicDetails data={data} />
+                <BasicDetails data={data} c1={c1} c2={c2} />
             </TabsContent>
             <TabsContent value="evolution">
                 <EvolutionForms data={data} />

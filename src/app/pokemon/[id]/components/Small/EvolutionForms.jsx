@@ -1,15 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import { TypeIcons } from "../../../../../public/TypeIcon/exporter";
-import { Button } from "../../../resources/components/ui/button";
+import { TypeIcons } from "../../../../../../public/TypeIcon/exporter";
+import { Button } from "../../../../resources/components/ui/button";
 import {
     Tabs,
     TabsContent,
     TabsList,
     TabsTrigger,
-} from "../../../resources/components/ui/tabs";
-import NormalIcon from '../../../resources/icons/BlackStarIcon';
-import ShinyIcon from '../../../resources/icons/StarIcon';
+} from "../../../../resources/components/ui/tabs";
+import NormalIcon from '../../../../resources/icons/BlackStarIcon';
+import ShinyIcon from '../../../../resources/icons/StarIcon';
 
 const typesColor = {
     normal: "#949495",

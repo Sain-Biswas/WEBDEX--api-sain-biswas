@@ -19,9 +19,11 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Rubik+Burned&display=swap" rel="stylesheet" />
       </head>
-      <body className={`overflow-x-hidden ${inter.className}`}>
+      <body className={`overflow-x-hidden flex flex-col bg-slate-100 min-h-screen ${inter.className}`}>
         <NavBar />
-        {children}
+        <div className='flex-grow'>
+          {children}
+        </div>
       </body>
     </html>
   )
