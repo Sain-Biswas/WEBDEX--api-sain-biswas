@@ -18,7 +18,7 @@ export default function Home() {
               className='w-full h-full'
             />
           </div>
-          <div className='w-[18rem] h-60 flex justify-center items-center'>
+          <div className='w-[18rem] sm:h-60 flex justify-center items-center'>
             <p className='sm:text-2xl text-lg italic font-mono text-center text-white'>Welcome to WébDex. The all in one Online Pokémon.</p>
           </div>
         </div>
@@ -66,7 +66,7 @@ export default function Home() {
               className='w-full h-full'
             />
           </div>
-          <div className='w-[18rem] h-60 flex justify-center items-center'>
+          <div className='w-[18rem] h-36 sm:h-60 flex justify-center items-center'>
             <p className='text-lg sm:text-2xl italic font-mono text-center text-white'>Beautifully designed Application Programming Interface &#40;API&#41; to get all information about Pokémons in one place.</p>
           </div>
         </div>
