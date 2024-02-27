@@ -19,7 +19,7 @@ export default function Home() {
             />
           </div>
           <div className='w-[18rem] h-60 flex justify-center items-center'>
-            <p className='text-2xl italic font-mono text-center text-white'>Welcome to WébDex. The all in one Online Pokémon.</p>
+            <p className='sm:text-2xl text-lg italic font-mono text-center text-white'>Welcome to WébDex. The all in one Online Pokémon.</p>
           </div>
         </div>
         <div className='w-full grid grid-cols-3 gap-1'>
@@ -51,7 +51,7 @@ export default function Home() {
             </Link>
           </Button>
         </div>
-        <div className='pt-2 text-white font-mono text-center'>
+        <div className='pt-2 text-white font-mono text-center text-sm sm:text-base'>
           Learn and discover all about the monsters of the PokéWorld.
         </div>
       </div>
@@ -67,7 +67,7 @@ export default function Home() {
             />
           </div>
           <div className='w-[18rem] h-60 flex justify-center items-center'>
-            <p className='text-2xl italic font-mono text-center text-white'>Beautifully designed Application Programming Interface &#40;API&#41; to get all information about Pokémons in one place.</p>
+            <p className='text-lg sm:text-2xl italic font-mono text-center text-white'>Beautifully designed Application Programming Interface &#40;API&#41; to get all information about Pokémons in one place.</p>
           </div>
         </div>
         <div className='w-full grid grid-cols-3 gap-1'>
@@ -99,7 +99,7 @@ export default function Home() {
             </Link>
           </Button>
         </div>
-        <div className='pt-2 text-white font-mono text-center'>
+        <div className='pt-2 text-white font-mono text-center text-sm sm:text-base'>
           Guide to access the information of all Pokémons at one place.
         </div>
       </div>
